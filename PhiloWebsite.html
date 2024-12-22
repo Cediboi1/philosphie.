@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Philosophie Galerie</title>
+        <style>
+            
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f4f8;
+                color: #333;
+                margin: 0;
+                padding: 0;
+            }
+            header {
+                background: linear-gradient(45deg, #3a86ff, #264653);
+                color: white;
+                padding: 1rem 2rem;
+                text-align: center;
+            }
+
+            header {
+                background-color: #3a86ff;
+                color: white;
+                padding: 1rem 2rem;
+                text-align: center;
+            }
+            .tabs {
+                display: flex;
+                justify-content: center;
+                background-color: #264653;
+                border-bottom: 2px solid #ddd;
+            }
+            .tabs button {
+                background: none;
+                border: none;
+                color: white;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+            }
+
+            .tabs button:hover {
+                transform: scale(1.05);
+                background-color: #457b9d;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            }
+
+            .tabs button {
+                background: none;
+                border: none;
+                color: white;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+            }
+            .tabs button.active {
+                font-weight: bold;
+                color: white;
+            }
+            .tabs button:nth-child(1) {
+                background-color: #ff6f61; /* Rot */
+            }
+            .tabs button:nth-child(2) {
+                background-color: #6a4c93; /* Lila */
+            }
+            .tabs button:nth-child(3) {
+                background-color: #2a9d8f; /* Türkis */
+            }
+            .tabs button.active::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: #fff;
+                animation: tab-underline 0.3s ease-in-out;
+            }
+            .tabs button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                background-color: #457b9d;
+            }
+            .tab-content {
+                display: none;
+                padding: 2rem;
+                transition: opacity 0.3s ease;
+            }
+            .tab-content.active {
+                display: block;
+            }
+            .faq, .interviews {
+                max-width: 800px;
+                margin: auto;
+            }
+            .faq-item, .interview-item {
+                margin-bottom: 2rem;
+                padding: 1rem;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                background-color: #fff;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .faq-item h3, .interview-item h3 {
+                margin: 0 0 0.5rem 0;
+                color: #3a86ff;
+            }
+
+            .link {
+                color: #3a86ff;
+                text-decoration: underline;
+            }
+
+            .link:hover {
+                color: #264653;
+                text-decoration: none;
+            }
+
+            footer {
+                text-align: center;
+                padding: 1rem;
+                background-color: #3a86ff;
+                color: white;
+                position: relative;
+                opacity: 0;
+                transform: translateY(50px);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            footer.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+
+            @keyframes tab-underline {
+                0% {
+                    width: 0;
+                    left: 50%;
+                }
+                50% {
+                    width: 50%;
+                    left: 25%;
+                }
+                100% {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+            .fade-in {
+                opacity: 0;
+                transform: translateX(-100%);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateX(0);
+            }    
+        </style>
+</head>
+<body>
+    <header>
+        <h1>Philosophie Galerie</h1>
+    </header>
+    <div class="tabs">
+        <button class="tab-link active" onclick="switchTab('faq')">FAQ</button>
+        <button class="tab-link" onclick="switchTab('interviews')">Interviews</button>
+        <button class="tab-link" onclick="switchTab('second-interviews')">Weitere Interviews</button>
+        <button class="tab-link" onclick="switchTab('portraits')">Porträts</button>
+    </div>
+
+    <div id="faq" class="tab-content active">
+        <div id="faq" class="faq">
+            <h2>Erkunde die Fragen zur Liebe</h2>
+
+            <div class="faq-item">
+                <h3>1. Was ist Liebe überhaupt?</h3>
+                <p>Liebe ist ein Gefühl, ein Zustand und ein Prinzip. Sie ist sowohl eine tiefe emotionale Bindung als auch ein Streben nach etwas Größerem. Liebe bedeutet, jemandem oder etwas mit Wohlwollen, Zuneigung und Hingabe zu begegnen.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>2. Gibt es mehrere Arten von Liebe oder nur eine?</h3>
+                <p>Ja, es gibt verschiedene Arten: Eros (romantische Liebe), Philia (freundschaftliche Liebe), Agape (selbstlose Liebe) und Storge (familiäre Liebe). Jede Form hat ihre eigene Tiefe und Bedeutung.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>3. Wie finde ich Liebe?</h3>
+                <p>Liebe entsteht, wenn du offen bist, sie zu empfangen und zu geben. Begegne anderen Menschen ehrlich und sei bereit, Beziehungen zu pflegen. Geduld und Authentizität sind der Schlüssel.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>4. Kann man Liebe überhaupt finden, oder müsste man ihr nicht anders begegnen?</h3>
+                <p>Liebe ist keine Suche, sondern eine Begegnung. Sie zeigt sich, wenn du achtsam bist und dich auf andere einlässt. Liebe geschieht in Momenten, die du nicht erzwingen kannst.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>5. Was kann ich tun?</h3>
+                <p>Sei offen, ehrlich und lerne, dich selbst zu lieben. Pflege Beziehungen bewusst, zeige Mitgefühl und sei bereit, anderen zu geben, ohne immer etwas zu erwarten.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>6. Warum sollte ich Liebe brauchen?</h3>
+                <p>Liebe gibt uns Halt, Freude und Sinn im Leben. Sie verbindet uns mit anderen, stärkt unsere Seele und hilft uns, Herausforderungen zu bewältigen.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>7. Warum sollte ich Liebe überhaupt wollen?</h3>
+                <p>Liebe bereichert unser Leben emotional und geistig. Sie gibt unserem Dasein eine tiefere Bedeutung und lässt uns Menschlichkeit erfahren.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Zusammenfassung</h3>
+                <p>Liebe ist die Verbindung zwischen Menschen und ein Weg zu Sinn und Freude. Sie hat viele Formen, von romantisch bis selbstlos, und begegnet uns, wenn wir offen und achtsam sind. Liebe ist das, was unser Leben erfüllt.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="interviews" class="tab-content">
+        <div class="interviews">
+                <h2>Interviews: Aristoteles und Platon über die Liebe</h2>
+    
+                <div class="interview-item">
+                    <h3>Moderator: Welche Arten von Liebe siehst du, Aristoteles?</h3>
+                    <p><strong>Aristoteles:</strong> Es gibt drei Arten: Liebe aus Nutzen, Liebe aus Vergnügen und die höchste Form der Liebe, die auf Tugend basiert. Die letzte ist die wahre, tiefste Liebe.</p>
+                    <p><strong>Platon:</strong> Ich unterscheide auch. Es gibt die körperliche Liebe, die oft vergänglich ist, und die geistige Liebe, die sich auf das Streben nach der Schönheit und Wahrheit richtet.</p>
+                </div>
+    
+                <div class="interview-item">
+                    <h3>Moderator: Wovon grenzt ihr die Liebe ab?</h3>
+                    <p><strong>Aristoteles:</strong> Liebe ist nicht dasselbe wie Leidenschaft oder Begierde. Wahre Liebe basiert auf Tugend und dem Streben nach dem Guten, während Leidenschaft oft unbeständig ist.</p>
+                    <p><strong>Platon:</strong> Liebe ist nicht nur eine körperliche Begierde. Sie geht über das Sinnliche hinaus und richtet sich auf das Höhere, das Geistige.</p>
+                </div>
+    
+                <div class="interview-item">
+                    <h3>Moderator: Welche Relevanz hat Liebe für euch?</h3>
+                    <p><strong>Aristoteles:</strong> Liebe ist wichtig, um ein gutes und glückliches Leben zu führen. Sie hilft uns, moralisch zu handeln und das Wohl der anderen zu suchen.</p>
+                    <p><strong>Platon:</strong> Liebe ist die treibende Kraft auf dem Weg zur Wahrheit. Ohne sie finden wir nicht zur höchsten Erkenntnis. Sie ist der Weg zur vollkommenen Schönheit.</p>
+                </div>
+    
+                <div class="interview-item">
+                    <h3>Moderator: Für wie sinnvoll oder realistisch haltet ihr das Verständnis von Liebe, das ihr habt?</h3>
+                    <p><strong>Aristoteles:</strong> Mein Verständnis von Liebe ist realistisch, weil es auf praktischen und ethischen Prinzipien basiert. Es ist möglich, eine tugendhafte Liebe im Alltag zu leben.</p>
+                    <p><strong>Platon:</strong> Mein Verständnis von Liebe ist idealistischer. Es richtet sich nach der wahren Schönheit und ist schwer in der physischen Welt vollständig zu erfahren, aber es ist das Höchste, was wir erreichen können.</p>
+                </div>
+    
+                <div class="interview-item">
+                    <h3>Moderator: Wo würdet ihr zustimmen und wo widersprechen?</h3>
+                    <p><strong>Aristoteles:</strong> Ich stimme Platon zu, dass Liebe auch eine geistige Dimension hat, aber für mich ist sie realistischer und praktischer, besonders in den zwischenmenschlichen Beziehungen.</p>
+                    <p><strong>Platon:</strong> Ich verstehe Aristoteles’ Sicht, aber wahre Liebe sollte immer das Streben nach etwas Höherem und Idealem beinhalten. Ohne diesen Aspekt bleibt sie unvollständig.</p>
+                </div>
+    
+                <div class="interview-item">
+                    <h3>Moderator: Was braucht es für wahre Liebe, Aristoteles?</h3>
+                    <p><strong>Aristoteles:</strong> Wahre Liebe braucht Tugend, Vertrauen und das Bestreben, das Gute für den anderen zu tun.</p>
+                    <p><strong>Platon:</strong> Wahre Liebe braucht das Streben nach der höchsten Schönheit und Wahrheit, die uns über die materielle Welt hinausführt.</p>
+                </div>
+            </div>
+        </div>
+    <div id="second-interviews" class="tab-content">
+    <div class="second-interviews"> 
+                    <div class="interview-item">
+                    <h3>Moderator: Willkommen zu einem weiteren spannenden Gespräch über die Liebe! Heute sind bei uns die antiken Denker Platon und Aristoteles sowie die modernen Philosophen Simone de Beauvoir und Zygmunt Bauman. Fangen wir an mit der Frage: Was bedeutet Liebe für euch?</h3>
+                    <p><strong>Platon:</strong> Liebe ist das Streben nach der idealen, ewigen Schönheit. Sie beginnt oft körperlich, aber ihre wahre Form ist geistig und führt uns zu Wahrheit und Weisheit.</p>
+                    <p><strong>Aristoteles:</strong> Liebe ist eine Beziehung, die auf Tugend basiert. Sie ist die höchste Form der Freundschaft, in der beide das Wohl des anderen fördern und gemeinsam wachsen.</p>
+                    <p><strong>Beauvoir:</strong> Liebe ist eine Partnerschaft zwischen freien Individuen. Sie sollte die Freiheit und das Wachstum des anderen fördern, ohne zur Abhängigkeit oder Besitzgier zu führen.</p>
+                    <p><strong>Bauman:</strong> Liebe in der modernen Welt ist oft „flüssig“ – sie ist instabil und geprägt von Unsicherheit. Dennoch bleibt sie ein tiefes menschliches Bedürfnis nach Nähe und Anerkennung.</p>
+                    </div>
+
+                    <div class="interview-item">
+                        <h3>Moderator: Wovon grenzt ihr die Liebe ab?</h3>
+                        <p><strong>Platon:</strong> Liebe ist nicht bloße körperliche Begierde oder ein vergänglicher Impuls. Sie ist eine Verbindung zur höheren, geistigen Welt.</p>
+                        <p><strong>Aristoteles:</strong> Liebe ist keine Laune oder Leidenschaft, die kommt und geht. Wahre Liebe basiert auf Rationalität und Tugend.</p>
+                        <p><strong>Beauvoir:</strong> Liebe ist nicht Unterwerfung oder Besitz. Sie muss frei von Machtverhältnissen sein, um authentisch zu bleiben.</p>
+                        <p><strong>Bauman:</strong> Liebe ist nicht Konsum. In der modernen Gesellschaft wird Liebe oft wie ein Produkt behandelt – man „kauft“ sie und wirft sie weg, wenn sie nicht mehr passt. Das ist keine wahre Liebe.</p>
+                    </div>
+
+                    <div class="interview-item">
+                        <h3>Moderator: Welche Relevanz hat Liebe in eurem Denken?</h3>
+                        <p><strong>Platon:</strong> Liebe ist der Weg zur Erkenntnis. Sie erhebt uns von der materiellen Welt zur Welt der Ideen.</p>
+                        <p><strong>Aristoteles:</strong> Liebe ist essenziell für das gute Leben. Sie ermöglicht es uns, in Gemeinschaft zu leben und unser höchstes Potenzial zu erreichen.</p>
+                        <p><strong>Beauvoir:</strong> Liebe ist wichtig, weil sie uns erlaubt, unsere Freiheit in Verbindung mit anderen zu leben. Sie kann ein Weg sein, das Leben sinnhaft zu gestalten.</p>
+                        <p><strong>Bauman:</strong> Liebe ist ein zentraler Teil des menschlichen Lebens, aber in der modernen Welt wird sie von Unsicherheit und Instabilität überschattet. Trotzdem bleibt sie ein Sehnsuchtsort.</p>
+                    </div>
+
+                    <div class="interview-item">
+                        <h3>Moderator: Für wie realistisch haltet ihr eure Vorstellungen von Liebe?</h3>
+                        <p><strong>Platon:</strong> Meine Vorstellung ist idealistisch, aber das Streben nach dem Ideal gibt dem Leben Sinn.</p>
+                        <p><strong>Aristoteles:</strong> Meine Vorstellung ist realistisch. Tugendhafte Liebe kann im Alltag gelebt werden, wenn man sich bemüht.</p>
+                        <p><strong>Beauvoir:</strong> Meine Vorstellung ist realistisch, aber anspruchsvoll. Es ist schwer, die Balance zwischen Freiheit und Nähe zu finden, doch es ist möglich.</p>
+                        <p><strong>Bauman:</strong> Meine Vorstellung ist realistisch, aber sie spiegelt die Probleme unserer Zeit wider. Liebe ist heute oft flüchtig und von Unsicherheit geprägt.</p>
+                    </div>
+
+                    <div class="interview-item">
+                        <h3>Moderator: Gibt es Punkte, bei denen ihr euch gegenseitig zustimmen oder widersprechen würdet?</h3>
+                        <p><strong>Platon:</strong> Ich stimme Beauvoir zu, dass Liebe die Freiheit fördern sollte, aber ich sehe sie weniger als partnerschaftliche Beziehung. Für mich ist sie ein Weg zur Erkenntnis. Bauman, dein Bild von „flüssiger Liebe“ finde ich traurig, aber es zeigt, wie weit wir uns von der wahren Liebe entfernt haben.</p>
+                        <p><strong>Aristoteles:</strong> Ich stimme Platon zu, dass Liebe eine höhere Dimension haben kann, aber sie muss auch praktisch im Alltag verwurzelt sein. Beauvoir, deine Idee von Liebe als Freiheit finde ich inspirierend. Bauman, ich sehe deine „flüssige Liebe“ als ein Symptom fehlender Tugend in der modernen Welt.</p>
+                        <p><strong>Beauvoir:</strong> Platon und Aristoteles, eure Vorstellungen sind idealistisch, aber oft zu weit von der Realität entfernt. Liebe muss die Freiheit des anderen respektieren. Bauman, dein Konzept der Unsicherheit zeigt wichtige Probleme, aber ich glaube, Liebe kann dennoch Stabilität geben, wenn wir sie ernsthaft leben.</p>
+                        <p><strong>Bauman:</strong> Ich stimme Beauvoir zu, dass Liebe Freiheit und Respekt beinhalten muss. Platon und Aristoteles, eure idealistischen Konzepte sind schwer auf die moderne Welt anwendbar, aber sie bieten inspirierende Ziele.</p>
+                    </div>
+
+                    <div class="interview-item">
+                        <h3>Moderator: Was braucht es für wahre Liebe?</h3>
+                        <p><strong>Platon:</strong> Wahre Liebe braucht das Streben nach Wahrheit und Schönheit, die über das Materielle hinausgeht.</p>
+                        <p><strong>Aristoteles:</strong> Wahre Liebe braucht Tugend, Vertrauen und das Ziel, das Wohl des anderen zu fördern.</p>
+                        <p><strong>Beauvoir:</strong> Wahre Liebe braucht Gleichheit, Respekt und die Freiheit, man selbst zu sein.</p>
+                        <p><strong>Bauman:</strong> Wahre Liebe braucht Mut, Unsicherheiten zu akzeptieren, und den Willen, trotz Instabilität Nähe zu schaffen.</p>
+                    </div>
+
+                    <div class="interview-item">
+                        <h3>Moderator: Vielen Dank an euch alle für dieses tiefgründige Gespräch! Ein letztes Wort?</h3>
+                        <p><strong>Platon:</strong> Liebe ist der Aufstieg zur Wahrheit. Strebt danach!</p>
+                        <p><strong>Aristoteles:</strong> Liebe ist die Grundlage eines guten Lebens. Lebt sie mit Tugend!</p>
+                        <p><strong>Beauvoir:</strong> Liebe ist eine Partnerschaft. Respektiert die Freiheit des anderen!</p>
+                        <p><strong>Bauman:</strong> Liebe ist fragil, aber es lohnt sich, sie zu pflegen.</p>
+                    </div>
+                </div>
+   
+    
+    </div>
+
+    <div id="portraits" class="tab-content">
+        <div class="portraits">
+            <h2>Porträts von Platon und Aristoteles</h2>
+            <div class="interview-item">
+                <h3>Platon und Aristoteles im Dialog</h3>
+                <p><strong>Platon:</strong> "In meinem <a href="#" class="link">Symposion</a> erkläre ich, dass Liebe, Eros, als Streben beginnt. Anfangs mag sie sich auf den Körper richten, doch sie führt weiter. Ein Mensch erkennt, dass Schönheit überall existiert – nicht nur in einem Körper, sondern in allen Dingen, in den Seelen und schließlich in der Idee des Schönen selbst. Liebe ist eine Leiter, die uns vom Irdischen zum Göttlichen führt."</p>
+                <p><strong>Aristoteles:</strong> "Deine Leiter ist beeindruckend, Platon, aber ich sehe Liebe anders. In meiner <a href="#" class="link">Nikomachischen Ethik</a> sage ich, dass wahre Liebe zwischen Freunden entsteht, die einander das Gute wünschen. Es gibt drei Arten der Freundschaft: eine auf Nutzen, eine auf Vergnügen und die wahre Freundschaft, die auf Tugend basiert. Die höchste Form der Liebe ist tugendhaft und hilft uns, bessere Menschen zu werden."</p>
+                <p><strong>Platon:</strong> "Aber, Aristoteles, reicht das? Kannst du sagen, dass eine Freundschaft, selbst wenn sie tugendhaft ist, die Seele erhebt? Meine Liebe ist der Weg zur Wahrheit, nicht nur ein Band zwischen zwei Menschen."</p>
+                <p><strong>Aristoteles:</strong> "Und doch bleibt deine Liebe so weit entfernt, so theoretisch. Meine Idee ist für das Leben praktischer. Sie zeigt, wie wir in Gemeinschaft leben können und wie Liebe Teil eines guten, erfüllten Lebens wird."</p>
+            </div>
+           
+            <div class="portrait-item">
+                <h3><span class="highlight" onclick="showText('platon-text')">Platon</span></h3>
+                <p id="platon-text" style="display:none;">"Mein Name ist Platon, und ich wurde um 427 v. Chr. in Athen geboren. Ich war ein Schüler von Sokrates und gründete später meine eigene Schule, die Akademie. Meine Philosophie dreht sich um die Welt der Ideen, eine unsichtbare, vollkommene Wirklichkeit, die über der Welt liegt, die wir mit unseren Sinnen wahrnehmen. Ich bin bekannt für Werke wie 'Der Staat' (Politeia), in dem ich über Gerechtigkeit und die ideale Gesellschaft schreibe, und natürlich für meine Theorie des Eros – der Liebe. Liebe ist für mich nicht nur eine persönliche Angelegenheit, sondern ein Weg, um zur ewigen Wahrheit und Schönheit zu gelangen. Mein berühmtester Dialog über die Liebe ist das Symposion, wo ich erkläre, wie die Seele durch die Liebe zur Erkenntnis aufsteigt."</p>
+         
+            </div>
+
+            <div class="portrait-item">
+                <h3><span class="highlight" onclick="showText('aristoteles-text')">Aristoteles</span></h3>
+                <p id="aristoteles-text" style="display:none;">Ich heiße Aristoteles, geboren 384 v. Chr. in Stageira, einer kleinen Stadt in Makedonien. Ich war Schüler in Platons Akademie, habe später jedoch meine eigene Richtung eingeschlagen und das Lykeion gegründet. Mein Fokus liegt darauf, die Welt so zu erklären, wie sie ist – durch Beobachtung und logisches Denken. Ich habe viele Disziplinen beeinflusst, von der Ethik bis zur Biologie. Mein bekanntestes Werk zur Liebe findet sich in der Nikomachischen Ethik, wo ich über die Freundschaft spreche, die für mich eine Grundlage der Liebe ist. Anders als Platon sehe ich die Liebe nicht als etwas Abgehobenes, sondern als etwas, das mit Tugend und praktischen Beziehungen zwischen Menschen zu tun hat."</p>
+           </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Nikos und Cedric</p>
+    </footer>
+    <script>
+function switchTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const tabLinks = document.querySelectorAll('.tab-link');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.id === tabId) {
+                    tab.classList.add('active');
+                }
+            });
+            tabLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`.tab-link[onclick="switchTab('${tabId}')"]`).classList.add('active');
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+        function toggleExplanation(id) {
+            const explanation = document.getElementById(id);
+            explanation.style.display = explanation.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function showText(id) {
+            const text = document.getElementById(id);
+            text.style.display = text.style.display === 'block' ? 'none' : 'block';
+        }
+                window.addEventListener('scroll', function () {
+            const footer = document.querySelector('footer');
+            if (window.scrollY > 100) {
+                footer.classList.add('visible');
+            } else {
+                footer.classList.remove('visible');
+            }
+        });
+
+    </script>
+</body>
+</html>
+
+
